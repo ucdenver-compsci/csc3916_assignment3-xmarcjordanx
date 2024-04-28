@@ -4,7 +4,7 @@ var Schema = mongoose.Schema;
 mongoose.connect(process.env.DB);
 
 // Movie Schema
-var MovieSchema = new Schema({
+const MovieSchema = new mongoose.Schema({
     title: {type: String, required: true, index: true},
     releaseDate: Date,
     genre: {
@@ -19,8 +19,7 @@ var MovieSchema = new Schema({
     }],
 });
 
-// return the model
-module.exports = mongoose.model('Movie', MovieSchema);
+// const Movie = mongoose.model('Movie', MovieSchema);
 
 // const movies= [
 //     {
@@ -70,3 +69,13 @@ module.exports = mongoose.model('Movie', MovieSchema);
 //         ]
 //     },
 // ];
+
+// movies.forEach(movieData => {
+//   const movie = new Movie(movieData);
+//   movie.save()
+//     .then(() => console.log(`Saved ${movie.title}`))
+//     .catch(err => console.error(`Error saving ${movie.title}`, err));
+// });
+
+// return the model
+module.exports = mongoose.model('Movie', MovieSchema);
